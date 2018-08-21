@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderCell" rowHeight="109" id="KGk-i7-Jjw" customClass="HeaderCell" customModule="Spoint" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="260" height="109"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="260" height="108.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="0Bo-1n-bLC" customClass="RoundedImageView" customModule="Spoint" customModuleProvider="target">
+                        <rect key="frame" x="15" y="5" width="65" height="65"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="65" id="A03-3C-hxd"/>
+                            <constraint firstAttribute="height" constant="65" id="vfs-Mn-CQ0"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ceS-MD-os6">
+                        <rect key="frame" x="88" y="10" width="162" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="I7K-zb-aVh"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpb-rq-9qR">
+                        <rect key="frame" x="0.0" y="77" width="104" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="nvi-Ar-Mtu"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                        <state key="normal" title="Following">
+                            <color key="titleColor" red="0.2470588235" green="0.2470588235" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0bw-Iz-Nq6">
+                        <rect key="frame" x="104" y="77" width="104" height="30"/>
+                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                        <state key="normal" title="Followers">
+                            <color key="titleColor" red="0.2470588235" green="0.2470588235" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOW-U3-XGu">
+                        <rect key="frame" x="88" y="31" width="64.5" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="cjY-N7-17a"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vM4-9f-7aP">
+                        <rect key="frame" x="230" y="77" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="FwM-8a-DGR"/>
+                            <constraint firstAttribute="height" constant="30" id="p92-bn-tEk"/>
+                        </constraints>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <state key="normal" image="AddFriendsV1.png"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location not updated today! " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgL-F8-RYq">
+                        <rect key="frame" x="88" y="54" width="168" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14.5" id="16V-pg-mEP"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                        <color key="textColor" red="0.96862745100000003" green="0.047058823530000002" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ceS-MD-os6" firstAttribute="leading" secondItem="0Bo-1n-bLC" secondAttribute="trailing" constant="8" id="09F-lu-uOG"/>
+                    <constraint firstItem="0Bo-1n-bLC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="34f-x9-FZ6"/>
+                    <constraint firstItem="Fpb-rq-9qR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="58M-u3-fru"/>
+                    <constraint firstItem="cOW-U3-XGu" firstAttribute="top" secondItem="ceS-MD-os6" secondAttribute="bottom" constant="1" id="5zJ-bJ-TqG"/>
+                    <constraint firstItem="FgL-F8-RYq" firstAttribute="top" secondItem="cOW-U3-XGu" secondAttribute="bottom" constant="3" id="7zm-u3-H4X"/>
+                    <constraint firstItem="vM4-9f-7aP" firstAttribute="top" secondItem="0bw-Iz-Nq6" secondAttribute="top" id="IE4-xR-3mz"/>
+                    <constraint firstItem="Fpb-rq-9qR" firstAttribute="top" secondItem="0Bo-1n-bLC" secondAttribute="bottom" constant="7" id="OBz-oa-j9V"/>
+                    <constraint firstItem="FgL-F8-RYq" firstAttribute="leading" secondItem="ceS-MD-os6" secondAttribute="leading" id="Puk-Pb-DaB"/>
+                    <constraint firstItem="cOW-U3-XGu" firstAttribute="leading" secondItem="ceS-MD-os6" secondAttribute="leading" id="Raz-b3-jd8"/>
+                    <constraint firstItem="0bw-Iz-Nq6" firstAttribute="top" secondItem="Fpb-rq-9qR" secondAttribute="top" id="Uts-wc-tss"/>
+                    <constraint firstItem="0bw-Iz-Nq6" firstAttribute="leading" secondItem="Fpb-rq-9qR" secondAttribute="trailing" id="X3u-2g-dNP"/>
+                    <constraint firstItem="0Bo-1n-bLC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="YFn-OY-Fnk"/>
+                    <constraint firstAttribute="trailing" secondItem="FgL-F8-RYq" secondAttribute="trailing" constant="4" id="k2l-St-vni"/>
+                    <constraint firstItem="Fpb-rq-9qR" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.4" id="lKF-tj-XRH"/>
+                    <constraint firstAttribute="trailing" secondItem="ceS-MD-os6" secondAttribute="trailing" constant="10" id="lPg-Pc-B3U"/>
+                    <constraint firstAttribute="trailing" secondItem="vM4-9f-7aP" secondAttribute="trailing" id="njs-kc-rOP"/>
+                    <constraint firstItem="ceS-MD-os6" firstAttribute="top" secondItem="0Bo-1n-bLC" secondAttribute="top" constant="5" id="pVW-YU-YrQ"/>
+                    <constraint firstItem="0bw-Iz-Nq6" firstAttribute="height" secondItem="Fpb-rq-9qR" secondAttribute="height" id="sSy-m2-bpp"/>
+                    <constraint firstAttribute="bottom" secondItem="Fpb-rq-9qR" secondAttribute="bottom" constant="1.5" id="v7S-CE-dig"/>
+                    <constraint firstItem="0bw-Iz-Nq6" firstAttribute="width" secondItem="Fpb-rq-9qR" secondAttribute="width" id="zHP-Em-6yk"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="addButton" destination="vM4-9f-7aP" id="OAo-1F-ebW"/>
+                <outlet property="followerButton" destination="0bw-Iz-Nq6" id="xc8-7b-Dqe"/>
+                <outlet property="followingButton" destination="Fpb-rq-9qR" id="x5u-eP-BSn"/>
+                <outlet property="fullName" destination="ceS-MD-os6" id="rrh-q8-kBz"/>
+                <outlet property="imageview" destination="0Bo-1n-bLC" id="iby-RN-MKG"/>
+                <outlet property="timeStamp" destination="FgL-F8-RYq" id="1sL-3A-ZOw"/>
+                <outlet property="userName" destination="cOW-U3-XGu" id="iet-Kw-dnT"/>
+            </connections>
+            <point key="canvasLocation" x="3" y="-10.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="AddFriendsV1.png" width="1667" height="1667"/>
+        <image name="User" width="166" height="249"/>
+    </resources>
+</document>

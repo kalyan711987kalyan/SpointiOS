@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Helvetica.ttc">
+            <string>Helvetica</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NotificationTableViewCell" id="KGk-i7-Jjw" customClass="NotificationTableViewCell" customModule="Spoint" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="103"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="102.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="aEg-F0-Vau">
+                        <rect key="frame" x="10" y="32.5" width="305" height="70"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="70" id="1i9-Gw-ISy"/>
+                        </constraints>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="n8a-dW-g1w">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <connections>
+                            <outlet property="dataSource" destination="KGk-i7-Jjw" id="P6s-Tj-8wu"/>
+                            <outlet property="delegate" destination="KGk-i7-Jjw" id="PJu-ka-1cd"/>
+                        </connections>
+                    </collectionView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StarBucks" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfg-aA-PGb">
+                        <rect key="frame" x="10" y="10" width="206" height="12.5"/>
+                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tIi-yE-kQJ">
+                        <rect key="frame" x="221" y="10" width="80" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="FhQ-Jb-MTa"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="vfg-aA-PGb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="3C7-AM-OIE"/>
+                    <constraint firstAttribute="trailing" secondItem="aEg-F0-Vau" secondAttribute="trailing" constant="5" id="AEJ-jl-Aut"/>
+                    <constraint firstItem="tIi-yE-kQJ" firstAttribute="leading" secondItem="vfg-aA-PGb" secondAttribute="trailing" constant="5" id="R0l-sK-gGa"/>
+                    <constraint firstItem="vfg-aA-PGb" firstAttribute="leading" secondItem="aEg-F0-Vau" secondAttribute="leading" id="Tlm-Qn-Fzk"/>
+                    <constraint firstItem="tIi-yE-kQJ" firstAttribute="top" secondItem="vfg-aA-PGb" secondAttribute="top" id="XPd-9Z-iYd"/>
+                    <constraint firstItem="aEg-F0-Vau" firstAttribute="top" secondItem="vfg-aA-PGb" secondAttribute="bottom" constant="10" id="Zld-Ku-yZ0"/>
+                    <constraint firstAttribute="trailing" secondItem="tIi-yE-kQJ" secondAttribute="trailing" constant="19" id="tYX-Tz-drQ"/>
+                    <constraint firstAttribute="bottom" secondItem="aEg-F0-Vau" secondAttribute="bottom" id="teM-jo-vkU"/>
+                    <constraint firstItem="vfg-aA-PGb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="zEg-gl-Iqa"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="collectionview" destination="aEg-F0-Vau" id="IIh-Em-4FZ"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="83.5"/>
+        </tableViewCell>
+    </objects>
+</document>

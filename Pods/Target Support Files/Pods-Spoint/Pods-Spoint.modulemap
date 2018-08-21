@@ -1,0 +1,6 @@
+framework module Pods_Spoint {
+  umbrella header "Pods-Spoint-umbrella.h"
+
+  export *
+  module * { export * }
+}

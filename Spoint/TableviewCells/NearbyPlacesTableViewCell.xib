@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Helvetica.ttc">
+            <string>Helvetica</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NearbyPlacesTableViewCell" rowHeight="52" id="KGk-i7-Jjw" customClass="NearbyPlacesTableViewCell" customModule="Spoint" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="52"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="51.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location1600.png" translatesAutoresizingMaskIntoConstraints="NO" id="afO-pN-2D5">
+                        <rect key="frame" x="13" y="5.5" width="41" height="41"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="41" id="730-Da-Wd0"/>
+                            <constraint firstAttribute="height" constant="41" id="zm4-EU-5eF"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzN-hv-Kk7">
+                        <rect key="frame" x="62" y="2" width="241" height="20"/>
+                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwa-cs-rMv">
+                        <rect key="frame" x="62" y="21" width="241" height="21"/>
+                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="qzN-hv-Kk7" secondAttribute="trailing" constant="17" id="09Q-pV-ygH"/>
+                    <constraint firstItem="afO-pN-2D5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="13" id="8oh-JY-Om4"/>
+                    <constraint firstItem="dwa-cs-rMv" firstAttribute="trailing" secondItem="qzN-hv-Kk7" secondAttribute="trailing" id="CeF-IW-x6T"/>
+                    <constraint firstItem="dwa-cs-rMv" firstAttribute="top" secondItem="qzN-hv-Kk7" secondAttribute="bottom" constant="3" id="Ewm-HM-sff"/>
+                    <constraint firstItem="qzN-hv-Kk7" firstAttribute="leading" secondItem="afO-pN-2D5" secondAttribute="trailing" constant="8" id="H7C-ep-CbI"/>
+                    <constraint firstItem="qzN-hv-Kk7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="I8U-vM-Hwf"/>
+                    <constraint firstItem="afO-pN-2D5" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="PEg-wn-8pT"/>
+                    <constraint firstItem="dwa-cs-rMv" firstAttribute="leading" secondItem="qzN-hv-Kk7" secondAttribute="leading" id="weD-Bd-7an"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="descriptionLabel" destination="dwa-cs-rMv" id="mnF-LV-bN1"/>
+                <outlet property="imageview" destination="afO-pN-2D5" id="Asq-Kh-dHU"/>
+                <outlet property="title" destination="qzN-hv-Kk7" id="IgS-28-v1X"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="58"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="location1600.png" width="100" height="100"/>
+    </resources>
+</document>

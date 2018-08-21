@@ -1,0 +1,6 @@
+framework module BIZPopupView {
+  umbrella header "BIZPopupView-umbrella.h"
+
+  export *
+  module * { export * }
+}

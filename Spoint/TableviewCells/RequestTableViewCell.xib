@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RequestTableViewCell" id="KGk-i7-Jjw" customClass="RequestTableViewCell" customModule="Spoint" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="FTZ-U1-hhA" customClass="RoundedImageView" customModule="Spoint" customModuleProvider="target">
+                        <rect key="frame" x="5" y="-1" width="45" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="45" id="ebM-rz-wzd"/>
+                            <constraint firstAttribute="width" constant="45" id="nTt-EH-bqb"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7j-Ii-t0Z">
+                        <rect key="frame" x="60" y="11" width="100" height="20"/>
+                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aoH-Ai-JyS">
+                        <rect key="frame" x="160" y="11" width="70" height="22"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="6cp-ge-uqm"/>
+                            <constraint firstAttribute="height" constant="22" id="gJ8-dG-gC3"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                        <state key="normal" title="Accept">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <integer key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IbD-Cd-tQ4">
+                        <rect key="frame" x="240" y="11" width="70" height="22"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="cUx-OF-OVp"/>
+                            <constraint firstAttribute="height" constant="22" id="oOK-4j-He6"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                        <state key="normal" title="Reject">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <integer key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="IbD-Cd-tQ4" firstAttribute="centerY" secondItem="FTZ-U1-hhA" secondAttribute="centerY" id="DOg-9K-jwy"/>
+                    <constraint firstAttribute="trailing" secondItem="IbD-Cd-tQ4" secondAttribute="trailing" constant="10" id="ELj-wJ-fPL"/>
+                    <constraint firstItem="FTZ-U1-hhA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="L0G-1d-Mmg"/>
+                    <constraint firstItem="aoH-Ai-JyS" firstAttribute="leading" secondItem="M7j-Ii-t0Z" secondAttribute="trailing" id="LAh-gV-9NC"/>
+                    <constraint firstItem="M7j-Ii-t0Z" firstAttribute="centerY" secondItem="FTZ-U1-hhA" secondAttribute="centerY" id="Y4u-OL-8mW"/>
+                    <constraint firstItem="IbD-Cd-tQ4" firstAttribute="leading" secondItem="aoH-Ai-JyS" secondAttribute="trailing" constant="10" id="aTh-Mn-LmC"/>
+                    <constraint firstItem="aoH-Ai-JyS" firstAttribute="centerY" secondItem="IbD-Cd-tQ4" secondAttribute="centerY" id="irD-ZL-HA1"/>
+                    <constraint firstItem="FTZ-U1-hhA" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="q2V-GA-XJY"/>
+                    <constraint firstItem="M7j-Ii-t0Z" firstAttribute="leading" secondItem="FTZ-U1-hhA" secondAttribute="trailing" constant="10" id="spU-J5-lDG"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="acceptButton" destination="aoH-Ai-JyS" id="5d6-Ts-wWe"/>
+                <outlet property="nameLabel" destination="M7j-Ii-t0Z" id="cQ1-Yz-LbO"/>
+                <outlet property="profileImage" destination="FTZ-U1-hhA" id="6wW-bR-sFr"/>
+                <outlet property="rejectButton" destination="IbD-Cd-tQ4" id="feQ-Ai-6Lw"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="User" width="166" height="249"/>
+    </resources>
+</document>
