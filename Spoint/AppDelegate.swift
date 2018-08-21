@@ -13,7 +13,6 @@ import UserNotifications
 import GooglePlaces
 import Kingfisher
 import CoreMotion
-//import LocoKitCore
 import CoreData
 import FBSDKPlacesKit
 
@@ -67,20 +66,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate, PSLocat
         Fabric.sharedSDK().debug = true
       Fabric.with([Crashlytics.self])
 
-        //SpointDatabase.instance().createContactTable()
-
         let freschatConfig:FreshchatConfig = FreshchatConfig.init(appID: "7eacd164-9f90-4c8f-bd2a-79347ee23bc6", andAppKey: "1fa0f4ae-81bb-441c-a7d0-1f8f08e85950")
         Freshchat.sharedInstance().initWith(freschatConfig)
 
-        //DebugLog.deleteLogFile()
-
+//Set themes
         if ((UserDefaults.standard.object(forKey:"theme") as? String) != nil){
             mapThemeName = UserDefaults.standard.object(forKey:"theme") as! String
         }else{
             UserDefaults.standard.set(mapThemeName, forKey: "theme")
 
         }
-        //UNUserNotificationCenter.removeAllPendingNotificationRequests
+
         FirebaseApp.configure()
         //Fabric.sharedSDK().debug = true
 

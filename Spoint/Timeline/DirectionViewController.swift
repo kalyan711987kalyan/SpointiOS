@@ -76,7 +76,7 @@ enum ViewFromType {
     case followers
 }
 
-class DirectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, LocationServiceDelegate {
+class DirectionViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
     func tracingLocation(currentLocation: CLLocation) {
         self.saveLocationWithpath(isPath: true, currentLoc: currentLocation)
     }
@@ -85,13 +85,7 @@ class DirectionViewController: UIViewController, UITableViewDelegate, UITableVie
 
     }
 
-    func regionExited() {
-
-    }
-
-    func refionEntered() {
-
-    }
+    
 
     @IBOutlet var mapview: GMSMapView!
     @IBOutlet var tapButton: UIButton!

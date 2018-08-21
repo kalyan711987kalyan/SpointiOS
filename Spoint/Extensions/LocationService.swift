@@ -12,8 +12,6 @@ import CoreLocation
 protocol LocationServiceDelegate {
     func tracingLocation(currentLocation: CLLocation)
     func tracingLocationDidFailWithError(error: NSError)
-    func regionExited()
-    func refionEntered()
 }
 class LocationService: NSObject,CLLocationManagerDelegate {
 

@@ -768,10 +768,7 @@
 		306AEB9F1FB2A6FF00B78EC0 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				306AEBA81FB2A70F00B78EC0 /* GroupsViewController.swift */,
-				302BC5182090DB5D007652DA /* GroupEditViewController.swift */,
-				2B3DFB361FB2B33D004B0A38 /* GroupTableViewCell.swift */,
-				2B3DFB351FB2B33C004B0A38 /* GroupTableViewCell.xib */,
+				308BBCC91FEACE8C0007A35B /* SSettingViewController.swift */,
 				306AEBA41FB2A70D00B78EC0 /* SettingsViewController.swift */,
 				2B3DFB291FB2B222004B0A38 /* SettingsImageTableViewCell.swift */,
 				2B3DFB2A1FB2B222004B0A38 /* SettingsImageTableViewCell.xib */,
@@ -790,6 +787,58 @@
 				304E3D531FB44DA600D45020 /* ChatViewController.swift */,
 			);
 			path = Message;
+			sourceTree = "<group>";
+		};
+		3085A6EC212BF7B200C7BB5D /* Groups */ = {
+			isa = PBXGroup;
+			children = (
+				304B64401FCBBA6200AD1AA4 /* GroupsMapViewController.swift */,
+				304F6B3D20453DED002A1BCC /* EditGroupViewController.swift */,
+				306AEBA81FB2A70F00B78EC0 /* GroupsViewController.swift */,
+				302BC5182090DB5D007652DA /* GroupEditViewController.swift */,
+				2B3DFB361FB2B33D004B0A38 /* GroupTableViewCell.swift */,
+				2B3DFB351FB2B33C004B0A38 /* GroupTableViewCell.xib */,
+			);
+			path = Groups;
+			sourceTree = "<group>";
+		};
+		3085A6ED212BF8BA00C7BB5D /* Checkin */ = {
+			isa = PBXGroup;
+			children = (
+				304661411FF2A0F400C09F95 /* ViewCheckInViewController.swift */,
+				30429A391FB584D200B6E2BE /* CheckInViewController.swift */,
+				3026938220038BCC00E16452 /* CheckInMapViewController.swift */,
+				30BE921B20209C4B00EFCF6F /* CheckinHeaderView.swift */,
+				30BE921D20209C5C00EFCF6F /* CheckinHeaderView.xib */,
+			);
+			path = Checkin;
+			sourceTree = "<group>";
+		};
+		3085A6EE212BF8D400C7BB5D /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				30429A371FB5849C00B6E2BE /* NotificationViewController.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		3085A6EF212BF8F000C7BB5D /* Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				30429A431FB5EFB600B6E2BE /* DirectionViewController.swift */,
+				3012233D20E9EC4500BC9A8F /* RequestNotificationViewController.swift */,
+				3012233F20EA2FAB00BC9A8F /* MapFullScreenViewController.swift */,
+			);
+			path = Timeline;
+			sourceTree = "<group>";
+		};
+		3085A6F0212BF96800C7BB5D /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				309C32B41FB03FA9004AA732 /* ViewController.swift */,
+				300C04DD1FB09B0C0000257C /* RegisterViewController.swift */,
+			);
+			path = Signup;
 			sourceTree = "<group>";
 		};
 		308BBCC61FEA8BA20007A35B /* Resources */ = {
@@ -841,38 +890,29 @@
 				3050C61F1FB6EB6200333833 /* Model */,
 				300C04D11FB087CE0000257C /* Extensions */,
 				309C32B21FB03FA9004AA732 /* AppDelegate.swift */,
+				3085A6F0212BF96800C7BB5D /* Signup */,
+				3085A6EF212BF8F000C7BB5D /* Timeline */,
+				3085A6EE212BF8D400C7BB5D /* Notifications */,
+				3085A6ED212BF8BA00C7BB5D /* Checkin */,
+				3085A6EC212BF7B200C7BB5D /* Groups */,
 				3085A6EB212BE2D300C7BB5D /* Message */,
+				306AEB9F1FB2A6FF00B78EC0 /* Settings */,
 				3078C3AF1FC064BA00FCB5FF /* GoogleService-Info.plist */,
 				30D06FDC2036D7F700FD355F /* SplashViewController.swift */,
 				30D06FDD2036D7F700FD355F /* SplashViewController.xib */,
-				309C32B41FB03FA9004AA732 /* ViewController.swift */,
-				300C04DD1FB09B0C0000257C /* RegisterViewController.swift */,
 				300C04EF1FB150E20000257C /* DashboardViewController.swift */,
 				304F7F341FB1B1CC00015755 /* ContactsViewController.swift */,
 				3012233520E4C14500BC9A8F /* PhoneContactsViewController.swift */,
 				305425D31FDAD9F0006DF470 /* SearchCollectionReusableView.swift */,
 				304F7F3A1FB1BD8C00015755 /* AddContactViewController.swift */,
 				305EBF2F1FB4B9C500F8D1D5 /* FollowerRequestViewController.swift */,
-				30429A391FB584D200B6E2BE /* CheckInViewController.swift */,
-				30429A371FB5849C00B6E2BE /* NotificationViewController.swift */,
-				3012233D20E9EC4500BC9A8F /* RequestNotificationViewController.swift */,
-				30429A431FB5EFB600B6E2BE /* DirectionViewController.swift */,
-				3012233F20EA2FAB00BC9A8F /* MapFullScreenViewController.swift */,
 				3055363C1FC5882700164FD5 /* FollowersSelectionViewController.swift */,
-				308BBCC91FEACE8C0007A35B /* SSettingViewController.swift */,
-				304B64401FCBBA6200AD1AA4 /* GroupsMapViewController.swift */,
-				304F6B3D20453DED002A1BCC /* EditGroupViewController.swift */,
 				3050748A1FDB84C500D67998 /* AllUsersViewController.swift */,
-				304661411FF2A0F400C09F95 /* ViewCheckInViewController.swift */,
-				3026938220038BCC00E16452 /* CheckInMapViewController.swift */,
-				30BE921B20209C4B00EFCF6F /* CheckinHeaderView.swift */,
-				30BE921D20209C5C00EFCF6F /* CheckinHeaderView.xib */,
 				3055358B1FFFC2D7000E5101 /* PermissionPopViewController.swift */,
 				30FC22A52010D8CC00BCF417 /* FavouriteViewController.swift */,
 				30FBBDC22011911100283314 /* SOSViewController.swift */,
 				3037F9E9203C482000D8C0ED /* SearchLocationsViewController.swift */,
 				3050C61D1FB6E19300333833 /* CustomMapview.swift */,
-				306AEB9F1FB2A6FF00B78EC0 /* Settings */,
 				309C32C71FB06433004AA732 /* UIViewController+Alerts.h */,
 				309C32C81FB06433004AA732 /* UIViewController+Alerts.m */,
 				309C32B61FB03FA9004AA732 /* Main.storyboard */,

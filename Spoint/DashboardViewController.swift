@@ -14,7 +14,6 @@ import GoogleMaps
 import CoreData
 import GooglePlaces
 import Kingfisher
-//import LocoKitCore
 import UserNotifications
 import SystemConfiguration
 import Contacts
@@ -23,30 +22,9 @@ import PSLocation
 
 let UPDATE_SERVER_INTERVAL = 60 * 5
 
-class DashboardViewController: UIViewController,LocationServiceDelegate,UISearchBarDelegate,GMSMapViewDelegate,UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, PSLocationManagerDelegate {
+class DashboardViewController: UIViewController,UISearchBarDelegate,GMSMapViewDelegate,UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, PSLocationManagerDelegate {
 
-    func regionExited() {
 
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 2, repeats: false)
-
-        let content = UNMutableNotificationContent()
-        content.title = "Spoint"
-        content.body = "background!"
-        content.sound = UNNotificationSound.default()
-        let request = UNNotificationRequest(identifier: "textNotification", content: content, trigger: trigger)
-
-        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-        UNUserNotificationCenter.current().add(request) {(error) in
-            if let error = error {
-                print("Uh oh! We had an error: \(error)")
-            }
-        }
-    }
-    
-    func refionEntered() {
-
-    }
-    
     @IBOutlet var mapview: GMSMapView!
     @IBOutlet var searchbar : UISearchBar!
     @IBOutlet var searchView: UIView!
