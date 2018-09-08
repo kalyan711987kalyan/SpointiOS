@@ -19,6 +19,9 @@ class FollowerCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet var acceptButton:UIButton!
     @IBOutlet var rejectButton:UIButton!
+    
+    @IBOutlet var removeButton:UIButton!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

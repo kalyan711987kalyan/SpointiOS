@@ -12,15 +12,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactTableViewCell" id="KGk-i7-Jjw" customClass="ContactTableViewCell" customModule="Spoint" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactTableViewCell" rowHeight="53" id="KGk-i7-Jjw" customClass="ContactTableViewCell" customModule="Spoint" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="52.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2KO-Me-RO3">
-                        <rect key="frame" x="16" y="12" width="214" height="19.5"/>
+                        <rect key="frame" x="16" y="5" width="214" height="19.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="19.5" id="dLW-E9-wqy"/>
                         </constraints>
@@ -29,31 +29,52 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0X-ba-YAf" customClass="SCustomButton" customModule="Spoint" customModuleProvider="target">
-                        <rect key="frame" x="240" y="6" width="70" height="30"/>
-                        <color key="backgroundColor" red="0.88022071524870471" green="0.044246012939276567" blue="0.21992061811629249" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <rect key="frame" x="240" y="11.5" width="70" height="30"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="QXH-cv-jh4"/>
                             <constraint firstAttribute="width" constant="70" id="Whk-Op-olA"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                        <state key="normal" title="Following"/>
+                        <state key="normal" title="Following">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFh-y7-uGk">
+                        <rect key="frame" x="16" y="29.5" width="214" height="19.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="2KO-Me-RO3" secondAttribute="bottom" constant="12" id="4py-i7-zh7"/>
                     <constraint firstItem="c0X-ba-YAf" firstAttribute="leading" secondItem="2KO-Me-RO3" secondAttribute="trailing" constant="10" id="Doy-Ef-vve"/>
-                    <constraint firstItem="2KO-Me-RO3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="LIR-Lu-eHT"/>
+                    <constraint firstItem="NFh-y7-uGk" firstAttribute="top" secondItem="2KO-Me-RO3" secondAttribute="bottom" constant="5" id="Nun-xm-SXJ"/>
+                    <constraint firstItem="2KO-Me-RO3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Rsl-tG-OPc"/>
                     <constraint firstAttribute="trailing" secondItem="c0X-ba-YAf" secondAttribute="trailing" constant="10" id="YA8-WS-Auv"/>
                     <constraint firstItem="2KO-Me-RO3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="eRQ-7r-bfi"/>
+                    <constraint firstAttribute="bottom" secondItem="NFh-y7-uGk" secondAttribute="bottom" constant="3.5" id="lbQ-zT-IS7"/>
+                    <constraint firstItem="NFh-y7-uGk" firstAttribute="leading" secondItem="2KO-Me-RO3" secondAttribute="leading" id="stk-B5-3MU"/>
+                    <constraint firstItem="NFh-y7-uGk" firstAttribute="trailing" secondItem="2KO-Me-RO3" secondAttribute="trailing" id="tqg-sH-hAw"/>
                     <constraint firstItem="c0X-ba-YAf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="w11-ib-r2R"/>
-                    <constraint firstItem="2KO-Me-RO3" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="xqI-3f-ncc"/>
+                    <constraint firstItem="NFh-y7-uGk" firstAttribute="height" secondItem="2KO-Me-RO3" secondAttribute="height" id="xnq-02-fVY"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="nameLabel" destination="2KO-Me-RO3" id="2b7-bp-zQH"/>
+                <outlet property="phoneNumberLabel" destination="NFh-y7-uGk" id="X5F-cR-YTU"/>
                 <outlet property="statusButton" destination="c0X-ba-YAf" id="fCg-pU-XQV"/>
             </connections>
+            <point key="canvasLocation" x="40" y="58.5"/>
         </tableViewCell>
     </objects>
 </document>

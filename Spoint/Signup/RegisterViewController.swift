@@ -126,7 +126,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate, UIPickerView
         if shouldUploadProfile  {
             var kServerUrl = UserDefaults.standard.value(forKey: UserDefaultsKey.serverKey) as? String ?? "Spoint-Database"
 
-            let fileData = pickerButton.imageView?.image?.jpeg(.high)
+            let fileData = pickerButton.imageView?.image?.jpeg(.medium)
             var storage: Storage!
             storage = Storage.storage()
             let storageRef = storage.reference().child(kServerUrl).child("usersImage/\(userID!)/myFile")

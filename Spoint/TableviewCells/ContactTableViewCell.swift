@@ -12,7 +12,7 @@ class ContactTableViewCell: UITableViewCell {
 
     @IBOutlet var nameLabel:UILabel!
     @IBOutlet var statusButton:SCustomButton!
-    
+    @IBOutlet var phoneNumberLabel:UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -69,7 +69,7 @@ var isUsernameAvailable = false
             let userID = Auth.auth().currentUser?.uid
             self.showLoaderWithMessage(message: "Loading")
             let thumbnail = resizeImage(image: (profileImageButton.imageView?.image)!, targetSize: CGSize(width: 200, height: 200))
-            let fileData = profileImageButton.imageView?.image?.jpeg(.high)
+            let fileData = profileImageButton.imageView?.image?.jpeg(.medium)
             var kServerUrl = UserDefaults.standard.value(forKey: UserDefaultsKey.serverKey) as? String ?? "Spoint-Database"
 
             var storage: Storage!

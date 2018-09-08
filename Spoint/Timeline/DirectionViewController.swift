@@ -689,14 +689,15 @@ self.snapToRoad(arrayPath: arrayPath)
                     if user != nil {
                         if (user?.requestStatus == 0) {
                             self.requestitems.append(user!)
+                            if let userInfo = UserDefaults.standard.value(forKey: "remoteNotification") as? [AnyHashable : Any]
+                            {
+                                UserDefaults.standard.set(nil, forKey: "remoteNotification")
+                                let vc = self.storyboard?.instantiateViewController(withIdentifier: "RequestNotificationViewController") as! RequestNotificationViewController
+                                vc.requestitems = self.requestitems
+                                self.navigationController?.pushViewController(vc, animated: false)
+                            }
                         }
-                        if let userInfo = UserDefaults.standard.value(forKey: "remoteNotification") as? [AnyHashable : Any]
-                        {
-                            UserDefaults.standard.set(nil, forKey: "remoteNotification")
-                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "RequestNotificationViewController") as! RequestNotificationViewController
-                            vc.requestitems = self.requestitems
-                            self.navigationController?.pushViewController(vc, animated: false)
-                        }
+                        
                         self.tableview.reloadData()
                     }
                 }

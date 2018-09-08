@@ -260,6 +260,7 @@ class ContactsViewController: UIViewController,UICollectionViewDelegate,UICollec
             } else {
                 cell.followerButton.isHidden = false
             }
+            cell.removeButton.isHidden = true
 
 print(self.followersitems[indexPath.item].requestStatus)
             if self.followersitems[indexPath.item].requestStatus == 0 {
@@ -274,26 +275,32 @@ print(self.followersitems[indexPath.item].requestStatus)
                 cell.acceptButton.isHidden = false
                 cell.followingButton.isHidden = true
                 cell.followerButton.isHidden = true
+                cell.removeButton.isHidden = true
             }else if (self.followersitems[indexPath.item].requestStatus == 1 || self.followersitems[indexPath.item].requestStatus == 3 ){
 
                 cell.followingButton.isHidden = !cell.followerButton.isHidden
                 cell.followerButton.tag = indexPath.item
                 cell.followerButton.addTarget(self, action: #selector(sendFollowingRequest(sender:)), for: .touchUpInside)
                 cell.followingButton.tag = indexPath.item
-
+                cell.removeButton.tag = indexPath.item
                 cell.rejectButton.isHidden = true
                 cell.acceptButton.isHidden = true
                 let isuserExist = self.followingitems.contains(where: { $0.userInfo.id == self.followersitems[indexPath.item].userInfo.id })
                 let filterObj = self.followingitems.filter({$0.userInfo.id == self.followersitems[indexPath.item].userInfo.id && $0.requestStatus == 0})
-
+                cell.removeButton.isHidden = false
+                
+                cell.removeButton.addTarget(self, action: #selector(removeFollowers(sender:)), for: .touchUpInside)
                 if isuserExist, filterObj.count > 0 {
                     cell.followingButton.setTitle("Requested", for: .normal)
                     cell.followingButton.addTarget(self, action: #selector(cancelFollowerRequest(sender:)), for: .touchUpInside)
+                    cell.removeButton.isHidden = true
 
 
                 }else if !cell.followingButton.isHidden {
                     cell.followingButton.setTitle("Remove", for: .normal)
-                    cell.followingButton.addTarget(self, action: #selector(handleUnfollowRequest(sender:)), for: .touchUpInside)
+                    cell.removeButton.isHidden = false
+
+                    cell.removeButton.addTarget(self, action: #selector(removeFollowers(sender:)), for: .touchUpInside)
                 }
             }
 
@@ -311,6 +318,7 @@ print(self.followersitems[indexPath.item].requestStatus)
             cell.rejectButton.isHidden = true
             cell.acceptButton.isHidden = true
             cell.unfollowButton.isHidden = false
+            cell.removeButton.isHidden = true
 
             if self.followingitems[indexPath.item].requestStatus != 0 {
                 cell.unfollowButton.setTitle("Unfollow", for: .normal)
@@ -534,6 +542,22 @@ vc.contactViewObj = self
 
 
     }
+    
+    @objc func removeFollowers(sender:UIButton) {
+        let selectedUser = self.followersitems[sender.tag].userInfo
+
+        if let title = sender.titleLabel?.text, title.lowercased() == "remove".lowercased() {
+            
+            self.showAlertWithTitle(title: "", message: "Would you like to remove?", buttonCancelTitle: "NO", buttonOkTitle: "YES", completion: { (index) in
+                
+                if index == 1 {
+                    //self.unfollowUser(followuser: self.followersitems[sender.tag], index:sender.tag)
+                    self.removeUserFromFollowers(followuser: self.followersitems[sender.tag], index: sender.tag)
+                }
+            })
+            
+        }
+    }
 
     @objc func handleUnfollowRequest(sender:UIButton) {
         let selectedUser = self.followingitems[sender.tag].userInfo
@@ -549,7 +573,7 @@ vc.contactViewObj = self
 
         }else if let title = sender.titleLabel?.text, title.lowercased() == "remove".lowercased() {
 
-            self.showAlertWithTitle(title: "", message: "Would you like to cancel?", buttonCancelTitle: "NO", buttonOkTitle: "YES", completion: { (index) in
+            self.showAlertWithTitle(title: "", message: "Would you like to remove?", buttonCancelTitle: "NO", buttonOkTitle: "YES", completion: { (index) in
 
                 if index == 1 {
                     self.unfollowUser(followuser: self.followersitems[sender.tag], index:sender.tag)
@@ -677,6 +701,16 @@ vc.contactViewObj = self
 
     }
 
+    func removeUserFromFollowers(followuser:FollowUser, index:Int) {
+        FireBaseContants.firebaseConstant.requestPostUrl(strUrl: "https://fcm.googleapis.com/fcm/send", postHeaders:["Content-Type":"application/json","Authorization":"key=AAAAvyiQ5LQ:APA91bFLwzsyhfe347dLfJgwBmeQVyulPLSIkQiSLOiRKvsCG_OqGTk3g6_j7c9XR0wslUd0Hi9LIT-1975_sLuDVwXmGvib-VVa6lUrHWQ21pNr62T7Mpnr_8_Gm7h5EF-dMgc22bin"] , payload: self.buildPushPayloadForUnfollow(users:[followuser.userInfo.token], devicetype: followuser.userInfo.deviceType) ) { (response, error, data) in            }
+        FireBaseContants.firebaseConstant.Followers.child(FireBaseContants.firebaseConstant.CURRENT_USER_ID).child(followuser.userInfo.id).removeValue()
+        FireBaseContants.firebaseConstant.Following.child(followuser.userInfo.id).child(FireBaseContants.firebaseConstant.CURRENT_USER_ID).removeValue()
+        FireBaseContants.firebaseConstant.RecentChats.child(FireBaseContants.firebaseConstant.CURRENT_USER_ID).child(followuser.userInfo.id).removeValue()
+        FireBaseContants.firebaseConstant.RecentChats.child(followuser.userInfo.id).child(FireBaseContants.firebaseConstant.CURRENT_USER_ID).removeValue()
+        self.followersitems.remove(at: index)
+        
+        self.collectionview.reloadData()
+    }
 
     func unfollowUser(followuser:FollowUser, index:Int){
 
@@ -689,6 +723,7 @@ vc.contactViewObj = self
 
         FireBaseContants.firebaseConstant.RecentChats.child(FireBaseContants.firebaseConstant.CURRENT_USER_ID).child(followuser.userInfo.id).removeValue()
         FireBaseContants.firebaseConstant.RecentChats.child(followuser.userInfo.id).child(FireBaseContants.firebaseConstant.CURRENT_USER_ID).removeValue()
+       
         self.followingitems.remove(at: index)
 
         self.collectionview.reloadData()

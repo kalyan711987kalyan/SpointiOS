@@ -199,19 +199,25 @@ class PhoneContactsViewController: UIViewController, UIGestureRecognizerDelegate
         if indexPath.section == 0 {
             let dict = self.searchinvitecontactsArray[indexPath.row]
             let stringValue = dict["name"] ?? "No Name"
+            let phoneValue = dict["phone"] ?? ""
+
             cell?.nameLabel.text = stringValue
             cell?.statusButton.tag = indexPath.section
             cell?.statusButton.setTitle("Invite", for: .normal)
             cell?.statusButton.row = indexPath.row
             cell?.statusButton.section = indexPath.section
+            cell?.phoneNumberLabel.text = phoneValue
 
         }else if indexPath.section == 1 {
             let dict = self.searchfollowcontactsArray[indexPath.row]
             let stringValue = dict["name"] ?? "No Name"
+            let phoneValue = dict["phone"] ?? ""
+
             cell?.nameLabel.text = stringValue
             cell?.statusButton.tag = indexPath.section
             cell?.statusButton.setTitle("Follow", for: .normal)
             cell?.statusButton.row = indexPath.row
+            cell?.phoneNumberLabel.text = phoneValue
 
             if (dict["invitationStatus"] != "" && dict["invitationStatus"] != "requested") {
                 cell?.statusButton.setTitle("Requested", for: .normal)
@@ -223,11 +229,14 @@ class PhoneContactsViewController: UIViewController, UIGestureRecognizerDelegate
         }else {
             let dict = self.searchfollowimgcontactsArray[indexPath.row]
             let stringValue = dict["name"] ?? "No Name"
+            let phoneValue = dict["phone"] ?? ""
+
             cell?.nameLabel.text = stringValue
             cell?.statusButton.tag = indexPath.section
             cell?.statusButton.setTitle("Following", for: .normal)
             cell?.statusButton.row = indexPath.row
             cell?.statusButton.section = indexPath.section
+            cell?.phoneNumberLabel.text = phoneValue
 
         }
         cell?.statusButton.addTarget(self, action: #selector(buttonAction(sender:)), for: .touchUpInside)

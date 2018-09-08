@@ -50,14 +50,9 @@ class DashboardViewController: UIViewController,UISearchBarDelegate,GMSMapViewDe
 
     var didShowalert = false
     var oldLocation:CLLocation?
-    //var previousLoc:LocomotionSample!
-    //var previoustimeline:TimelineItem!
     var stopLocationUpdate = false
     var isFirstUpdate =  true
 var skip =  false
-    //var loco = LocomotionManager.highlander
-    // the Visits / Paths management singelton
-    //var timeline = TimelineManager()
     @IBOutlet var container:UIView!
     @IBOutlet var pageControl:UIPageControl!
     @IBOutlet var chatButton:SSBadgeButton!
@@ -120,9 +115,7 @@ var skip =  false
         FireBaseContants.firebaseConstant.getCurrentUser { (user) in
             if user.locationState {
                 self.startLocationTracking()
-
             }else{
-
                 self.stopLocationTracking()
             }
             self.updateNotification(user: user)
@@ -146,11 +139,8 @@ var skip =  false
             self.markerDict[user.name]?.position.longitude = user.longitude
             self.markerDict[user.name]?.map = self.mapview
             let cameraview = GMSCameraPosition.camera(withLatitude:user.latitude, longitude:user.longitude, zoom: 13)
-
             self.mapview.camera = cameraview
             self.mapview.animate(to: cameraview)
-
-            /**/
         }
 
         if UserDefaults.standard.bool(forKey:"isremoteNotification") == true, let userInfo = UserDefaults.standard.value(forKey: "remoteNotification") as? [AnyHashable : Any]
@@ -285,147 +275,7 @@ var skip =  false
 
     var lastLocationDate = Date()
 
-   /* func setupLocation(){
-
-        loco.requestLocationPermission()
-
-        // API keys can be created at: https://www.bigpaua.com/arckit/account
-       // ArcKitService.apiKey = "a7150c94ee534e2994d31ccef2324bf1"
-        timeline.activityTypeClassifySamples = false
-
-        if timeline.activityTypeClassifySamples {
-            // API keys can be created at: https://www.bigpaua.com/arckit/account
-            LocoKitService.apiKey = "a7150c94ee534e2994d31ccef2324bf1"
-        }
-
-//        if let timeline = timeline as? PersistentTimelineManager {
-//            //timeline.bootstrapActiveItems()
-//        }
-
-        // this is independent of the user's setting, and will show a blue bar if user has denied "always"
-        loco.locationManager.allowsBackgroundLocationUpdates = true
-
-
-
-            // watch for updates
-        var isFirstUpdate =  true
-        when(loco, does: .locomotionSampleUpdated) { _ in
-
-            if let currentLoc = self.loco.locomotionSample().location {
-
-
-                self.locationMarker.position = CLLocationCoordinate2D(latitude: currentLoc.coordinate.latitude, longitude: currentLoc.coordinate.longitude)
-                self.locationMarker.map = self.mapview
-
-                let currentItem = self.timeline.currentItem
-                var stateString = "stationary"
-                var isPath = true
-                var isVisit = false
-                if (currentItem as? Path) != nil {
-                    isPath = true
-                } else if (currentItem as? Visit) != nil {
-                    isVisit = true
-                    isPath = false
-                }
-                if (currentItem?.classifierResults?.first?.name) != nil {
-
-                    stateString = (currentItem?.classifierResults?.first?.name)!.rawValue
-                }
-
-                if self.oldLocation == nil {
-                    self.oldLocation = currentLoc
-                }
-
-                let milliSecs = Int64(TimeStamp)
-
-
-                if ((self.oldLocation!.distance(from: currentLoc)) > 90 || self.oldLocation == currentLoc || (((currentItem as? Visit) != nil) && ((self.previoustimeline as? Path) != nil)) || (((currentItem as? Path) != nil) && ((self.previoustimeline as? Visit) != nil)) || isFirstUpdate) {
-
-                    self.lastLocationDate = Date()
-
-
-                    self.previoustimeline = currentItem
-
-                    if FireBaseContants.firebaseConstant.currentUserInfo != nil, (FireBaseContants.firebaseConstant.currentUserInfo?.locationState)! {
-                        isFirstUpdate = false
-                        self.markerDict[(FireBaseContants.firebaseConstant.currentUserInfo?.name)!]?.position.latitude = currentLoc.coordinate.latitude
-                        self.markerDict[(FireBaseContants.firebaseConstant.currentUserInfo?.name)!]?.position.longitude = currentLoc.coordinate.longitude
-                        self.markerDict[(FireBaseContants.firebaseConstant.currentUserInfo?.name)!]?.map = self.mapview
-
-                        FireBaseContants.firebaseConstant.CURRENT_USER_REF.updateChildValues([keys.lattitudeKey: currentLoc.coordinate.latitude, keys.longitudeKey: currentLoc.coordinate.longitude], withCompletionBlock: { (errr, _) in
-
-                        })
-                        let d = Date().getDateString()
-
-
-
-
-                        if !ReachabilityManager.shared.isNetworkAvailable {
-
-                            let app = UIApplication.shared.delegate as! AppDelegate
-
-                            let context = app.persistentContainer.viewContext
-                            let entity = NSEntityDescription.entity(forEntityName: "Locationdata", in: context)!
-
-                            let location = NSManagedObject(entity: entity, insertInto: context)
-                           location.setValue(currentLoc.coordinate.latitude, forKey: keys.lattitudeKey)
-                            location.setValue(currentLoc.coordinate.longitude, forKey: keys.longitudeKey)
-                            location.setValue(milliSecs, forKey: keys.timestampKey)
-                            location.setValue(stateString, forKey: "state")
-
-                            location.setValue(isPath, forKey: "path")
-                            location.setValue(isVisit, forKey: "visit")
-
-                            do {
-                                try context.save()
-                                print("saved!!!")
-
-                            } catch {
-                                print ("Error")
-                            }
-
-                            log("(\(String(describing: type(of: currentLoc.coordinate.latitude)))):(\(String(describing: type(of: currentLoc.coordinate.longitude))))")
-                            //self.offlineData.append(LocationInformation(cocordinate: CLLocationCoordinate2D(latitude: currentLoc.coordinate.latitude, longitude: currentLoc.coordinate.longitude), timestamp: milliSecs, isvisit: isVisit, ispath: isPath, state:stateString ))
-
-                            self.oldLocation = currentLoc
-
-                        }else{
-
-                            guard self.stopLocationUpdate == false else{
-                                return
-                            }
-                            FireBaseContants.firebaseConstant.LocationData.child(FireBaseContants.firebaseConstant.CURRENT_USER_ID).child(d).observeSingleEvent(of: .value, with: { (snap) in
-
-                                if snap.exists(){
-                                    FireBaseContants.firebaseConstant.LocationData.child(FireBaseContants.firebaseConstant.CURRENT_USER_ID).child(d).child("\(milliSecs)").updateChildValues([keys.lattitudeKey: currentLoc.coordinate.latitude, keys.longitudeKey: currentLoc.coordinate.longitude,keys.timestampKey:milliSecs,"state":stateString,"path":isPath,"visit":isVisit, "duration": (self.oldLocation!.distance(from: currentLoc))], withCompletionBlock: { (errr, _) in
-                                        //timeline.remove(currentItem)
-                                        self.oldLocation = currentLoc
-
-
-                                    })
-                                }else{
-                                    //FireBaseContants.firebaseConstant.LocationData.child(FireBaseContants.firebaseConstant.CURRENT_USER_ID).removeValue()
-                                    FireBaseContants.firebaseConstant.LocationData.child(FireBaseContants.firebaseConstant.CURRENT_USER_ID).child(d).child("\(milliSecs)").updateChildValues([keys.lattitudeKey: currentLoc.coordinate.latitude, keys.longitudeKey: currentLoc.coordinate.longitude,keys.timestampKey:milliSecs,"state":stateString,"path":isPath,"visit":isVisit,"duration":(self.oldLocation!.distance(from: currentLoc))], withCompletionBlock: { (errr, _) in
-                                        // timeline.remove(currentItem)
-                                    })
-                                }
-                            })
-                        }
-                    }else{
-                        //self.locationservice.locationManager?.stopUpdatingLocation()
-                    }
-                }
-            }
-        }
-
-
-        loco.startRecording()
-        timeline.startRecording()
-        loco.locationManager.distanceFilter = 100
-        loco.useLowPowerSleepModeWhileStationary = true
-        loco.maximumDesiredLocationAccuracy = kCLLocationAccuracyHundredMeters
-
- }*/
+   
 
     func startLocationTracking() {
 
@@ -1022,7 +872,8 @@ self.addFriendButton.isHidden = false
         if let currentLoc  = locations.last,let _ = FireBaseContants.firebaseConstant.currentUserInfo {
 
             self.saveLocationWithpath(isPath: true, visit: false, currentLoc: currentLoc)
-
+            self.locationMarker.position = CLLocationCoordinate2D(latitude: currentLoc.coordinate.latitude, longitude: currentLoc.coordinate.longitude)
+            self.locationMarker.map = self.mapview
             if self.oldLocation == nil || (self.oldLocation!.distance(from: currentLoc) > 30) {
 
 
@@ -1073,16 +924,11 @@ self.addFriendButton.isHidden = false
 
             }else if  let oldLoc = self.oldLocation, (oldLoc.distance(from: currentLoc)) < 10  {
                 print(self.oldLocation!.distance(from: currentLoc))
-                //locationManager.setDepartureCoordinate(CLLocationCoordinate2DMake((oldLoc.coordinate.latitude), (oldLoc.coordinate.longitude)))
                 isVisit = false
-
                 skip = true
             }
             print(self.oldLocation!.distance(from: currentLoc))
-
-            
             isFirstUpdate = false
-
             //if let _ = self.markerDict[(currentUser.name)] {
                 self.markerDict[(FireBaseContants.firebaseConstant.currentUserInfo?.name)!]?.position.latitude = currentLoc.coordinate.latitude
                 self.markerDict[(FireBaseContants.firebaseConstant.currentUserInfo?.name)!]?.position.longitude = currentLoc.coordinate.longitude
@@ -1095,10 +941,7 @@ self.addFriendButton.isHidden = false
             let milliSecs = Int64(TimeStamp)
 
             let activity = locationManager.currentPSActivity()
-            if activity.rawValue == 1 || activity.rawValue == 0 {
-                isVisit = true
-
-            }
+            if activity.rawValue == 1 || activity.rawValue == 0 { isVisit = true }
 
             FireBaseContants.firebaseConstant.LocationData.child(FireBaseContants.firebaseConstant.CURRENT_USER_ID).child(d).observeSingleEvent(of: .value, with: { (snap) in
 
